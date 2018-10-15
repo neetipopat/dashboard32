@@ -7,13 +7,11 @@
 
     <!-- CSS Stylesheets -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- SCRIPTS TO INCLUDE -->
     <script src='https://code.jquery.com/jquery-3.3.1.min.js' , integrity='sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8='
         crossorigin='anonymous'></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js">
-
-
-
-
 
 
 
@@ -23,7 +21,15 @@
 <body>
     <div class="container">
         <h4>Device ID</h4>
-        <input type="text" placeholder="Enter your Device ID here" class="form-control">
+        <div class="row">
+            <div class="col-10">
+                <input type="text" placeholder="Enter your Device ID here" class="form-control" id="device_id">
+            </div>
+            <div class="col-2">
+                <button class="btn btn-primary btn-block" id="submit_device_id">Submit</button>
+            </div>
+        </div>
+
         <div class="success">
 
         </div>
@@ -31,34 +37,14 @@
 
         </div>
 
-        <button class="btn btn-primary" id="submit_device_id">Submit</button>
+
+
+        <div id="output_data">
+            <input type="text" placeholder="Case insensitive search" id="search_table" class="form-control">
+
+        </div>
+
     </div>
     <!-- ALWAYS ADD JS FILES PERTAINING TO THE FRONT-END AT THE END OF BODY UNLESS ABSOLUTELY NECESSARY TO PUT IN HEAD -->
     <script src="js/index.js"></script>
 </body>
-
-<!-- script(src='js/index.js')
-//- table
-thead
-tr
-th(data-field='updatedAt', data-align='right', data-sortable='true') Updated At
-th(data-field='createdAt', data-align='center', data-sortable='true') Created At
-th(data-field='deviceId', data-sortable='true') Device ID
-th(data-field='source', data-sortable='true') Source
-th(data-field='port', data-sortable='true') Port
-th(data-field='state', data-sortable='true') State
-th(data-field='__v', data-sortable='true') __v
-//- if logs.length
-//- each log in logs
-//- tr
-//- td #{log['updatedAt']}
-//- td #{logs['createdAt']}
-//- td #{logs['deviceId']}
-//- td #{logs['source']}
-//- td #{logs['port']}
-//- td #{logs['state']}
-//- td #{logs['__v']}
-//- var obj = #{logs}
-//- for (var i = 0; i < obj.length; i++){ //- console.log(obj[i]); //- console.log(obj[i]["source"]); //- } //- td
-    #{log.updatedAt} //- td #{log.createdAt} //- td #{log.deviceId} //- td #{log.source} //- td #{log.port} //- td
-    #{log.state} //- td #{log.__v} -->
