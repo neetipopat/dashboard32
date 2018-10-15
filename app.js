@@ -8,15 +8,11 @@ var methodOverride =  require('method-override');
 
 var app = express();
 
-// static redirect for jquery and bootstrap
-app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js'));    // redirect to bootstrap JS
-app.use('/js', express.static(__dirname + '/node_modules/jquery/dist'));          // redirect JS for jQuery
-app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'));  //redirect to css bootstrap
 
 // all environments
 app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
-app.set('view engine', 'jade');
+app.set('view engine', 'ejs');
 
 
 app.use(methodOverride());
@@ -39,6 +35,19 @@ var Schema = new mongoose.Schema({
 });
 var collectionName = 'picotest'
 var logs = mongoose.model('picotest', Schema,collectionName);
+
+
+//Routes declaration
+const index = require('./routes/index') //contains routes used to get data from the mongo dump
+
+
+app.get('/', (req, res)=>{
+	res.render('index')
+
+})
+app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js'));    // redirect to bootstrap JS
+// app.use('/js', express.static(__dirname + '/node_modules/jquery/dist'));          // redirect JS for jQuery
+// app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'));  //redirect to css bootstrap
 
 app.get('/view', function(req, res){
 	var mysort = {_id :-1};
