@@ -2,12 +2,10 @@ var express = require('express');
 var http = require('http');
 var path = require('path');
 var mongoose = require('mongoose');
-var connect = require('connect');
 var bodyParser = require('body-parser');
 var methodOverride =  require('method-override');
 //var logs = require('./routes/logs');
 
-var app=connect(); 
 var app = express();
 
 // static redirect for jquery and bootstrap
